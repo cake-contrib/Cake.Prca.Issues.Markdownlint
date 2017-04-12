@@ -47,7 +47,7 @@
         }
 
         /// <summary>
-        /// Gets an instance of a provider for code analysis issues reported by JMarkdownlint using log file content.
+        /// Gets an instance of a provider for code analysis issues reported by Markdownlint using log file content.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="logFileContent">Content of the the Markdownlint log file.</param>

@@ -44,7 +44,7 @@
         /// <summary>
         /// Returns a new instance of the <see cref="MarkdownlintSettings"/> class from a log file on disk.
         /// </summary>
-        /// <param name="logFilePath">Path to the Markdownlintlog file.</param>
+        /// <param name="logFilePath">Path to the Markdownlint log file.</param>
         /// <returns>Instance of the <see cref="MarkdownlintSettings"/> class.</returns>
         public static MarkdownlintSettings FromFilePath(FilePath logFilePath)
         {
