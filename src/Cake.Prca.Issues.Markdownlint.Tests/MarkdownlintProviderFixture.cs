@@ -5,7 +5,7 @@
     using Core.Diagnostics;
     using Testing;
 
-    public class MarkdownlintProviderFixture
+    internal class MarkdownlintProviderFixture
     {
         public MarkdownlintProviderFixture(string fileResourceName)
         {
