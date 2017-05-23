@@ -38,8 +38,8 @@
             }
 
             [Theory]
-            [InlineData("MD001", "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md")]
-            [InlineData("MD002", "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md")]
+            [InlineData("MD001", "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md001")]
+            [InlineData("MD002", "https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md002")]
             public void Should_Resolve_Url(string rule, string expectedUrl)
             {
                 // Given

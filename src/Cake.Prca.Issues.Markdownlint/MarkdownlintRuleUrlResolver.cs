@@ -16,7 +16,7 @@
         private MarkdownlintRuleUrlResolver()
         {
             this.AddUrlResolver(x =>
-                new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md"));
+                new Uri("https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#" + x.Rule.ToLowerInvariant()));
         }
 
         /// <summary>
