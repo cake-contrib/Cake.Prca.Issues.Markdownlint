@@ -9,16 +9,16 @@
     /// <summary>
     /// Provider for code analysis issues reported by Markdownlint.
     /// </summary>
-    internal class MarkdownlintProvider : CodeAnalysisProvider
+    internal class MarkdownlintIssuesProvider : CodeAnalysisProvider
     {
-        private readonly MarkdownlintSettings settings;
+        private readonly MarkdownlintIssuesSettings settings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintProvider"/> class.
+        /// Initializes a new instance of the <see cref="MarkdownlintIssuesProvider"/> class.
         /// </summary>
         /// <param name="log">The Cake log context.</param>
         /// <param name="settings">Settings for reading the log file.</param>
-        public MarkdownlintProvider(ICakeLog log, MarkdownlintSettings settings)
+        public MarkdownlintIssuesProvider(ICakeLog log, MarkdownlintIssuesSettings settings)
             : base(log)
         {
             settings.NotNull(nameof(settings));
@@ -38,7 +38,7 @@
                 let
                     rule = (string)entry.SelectToken("ruleName")
                 select
-                    new CodeAnalysisIssue<MarkdownlintProvider>(
+                    new CodeAnalysisIssue<MarkdownlintIssuesProvider>(
                         file.Key,
                         (int)entry.SelectToken("lineNumber"),
                         (string)entry.SelectToken("ruleDescription"),

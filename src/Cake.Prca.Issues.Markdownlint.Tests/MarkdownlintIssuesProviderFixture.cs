@@ -5,9 +5,9 @@
     using Core.Diagnostics;
     using Testing;
 
-    internal class MarkdownlintProviderFixture
+    internal class MarkdownlintIssuesProviderFixture
     {
-        public MarkdownlintProviderFixture(string fileResourceName)
+        public MarkdownlintIssuesProviderFixture(string fileResourceName)
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 
@@ -16,7 +16,7 @@
                 using (var sr = new StreamReader(stream))
                 {
                     this.Settings =
-                        MarkdownlintSettings.FromContent(
+                        MarkdownlintIssuesSettings.FromContent(
                             sr.ReadToEnd());
                 }
             }
@@ -27,13 +27,13 @@
 
         public FakeLog Log { get; set; }
 
-        public MarkdownlintSettings Settings { get; set; }
+        public MarkdownlintIssuesSettings Settings { get; set; }
 
         public ReportCodeAnalysisIssuesToPullRequestSettings PrcaSettings { get; set; }
 
-        public MarkdownlintProvider Create()
+        public MarkdownlintIssuesProvider Create()
         {
-            var provider = new MarkdownlintProvider(this.Log, this.Settings);
+            var provider = new MarkdownlintIssuesProvider(this.Log, this.Settings);
             provider.Initialize(this.PrcaSettings);
             return provider;
         }

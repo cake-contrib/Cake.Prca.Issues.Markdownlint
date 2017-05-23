@@ -6,18 +6,18 @@
     using Testing;
     using Xunit;
 
-    public class MarkdownlintProviderTests
+    public class MarkdownlintIssuesProviderTests
     {
-        public sealed class TheMsBuildCodeAnalysisProviderCtor
+        public sealed class TheMarkdownlintIssuesProviderCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    new MarkdownlintProvider(
+                    new MarkdownlintIssuesProvider(
                         null,
-                        MarkdownlintSettings.FromContent("Foo")));
+                        MarkdownlintIssuesSettings.FromContent("Foo")));
 
                 // Then
                 result.IsArgumentNullException("log");
@@ -27,7 +27,7 @@
             public void Should_Throw_If_Settings_Are_Null()
             {
                 var result = Record.Exception(() =>
-                    new MarkdownlintProvider(
+                    new MarkdownlintIssuesProvider(
                         new FakeLog(),
                         null));
 
@@ -42,7 +42,7 @@
             public void Should_Read_Issue_Correct()
             {
                 // Given
-                var fixture = new MarkdownlintProviderFixture("markdownlint.json");
+                var fixture = new MarkdownlintIssuesProviderFixture("markdownlint.json");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();
