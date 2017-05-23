@@ -9,7 +9,6 @@
     /// to write them to pull requests.
     /// </summary>
     [CakeAliasCategory(CakeAliasConstants.MainCakeAliasCategory)]
-    [CakeNamespaceImport("Cake.Prca.Issues.Markdownlint")]
     public static class MarkdownlintIssuesAliases
     {
         /// <summary>
