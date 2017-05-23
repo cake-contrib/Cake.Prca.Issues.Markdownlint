@@ -9,7 +9,7 @@
     /// <summary>
     /// Provider for code analysis issues reported by Markdownlint.
     /// </summary>
-    public class MarkdownlintProvider : CodeAnalysisProvider
+    internal class MarkdownlintProvider : CodeAnalysisProvider
     {
         private readonly MarkdownlintSettings settings;
 
