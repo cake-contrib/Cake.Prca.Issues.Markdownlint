@@ -4,15 +4,15 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="MarkdownlintProvider"/>.
+    /// Settings for <see cref="MarkdownlintIssuesProvider"/>.
     /// </summary>
-    public class MarkdownlintSettings
+    public class MarkdownlintIssuesSettings
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintSettings"/> class.
+        /// Initializes a new instance of the <see cref="MarkdownlintIssuesSettings"/> class.
         /// </summary>
         /// <param name="logFilePath">Path to the the Markdownlint log file.</param>
-        protected MarkdownlintSettings(FilePath logFilePath)
+        protected MarkdownlintIssuesSettings(FilePath logFilePath)
         {
             logFilePath.NotNull(nameof(logFilePath));
 
@@ -26,10 +26,10 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarkdownlintSettings"/> class.
+        /// Initializes a new instance of the <see cref="MarkdownlintIssuesSettings"/> class.
         /// </summary>
         /// <param name="logFileContent">Content of the the Markdownlint log file.</param>
-        protected MarkdownlintSettings(string logFileContent)
+        protected MarkdownlintIssuesSettings(string logFileContent)
         {
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
 
@@ -42,24 +42,24 @@
         public string LogFileContent { get; private set; }
 
         /// <summary>
-        /// Returns a new instance of the <see cref="MarkdownlintSettings"/> class from a log file on disk.
+        /// Returns a new instance of the <see cref="MarkdownlintIssuesSettings"/> class from a log file on disk.
         /// </summary>
         /// <param name="logFilePath">Path to the Markdownlint log file.</param>
-        /// <returns>Instance of the <see cref="MarkdownlintSettings"/> class.</returns>
-        public static MarkdownlintSettings FromFilePath(FilePath logFilePath)
+        /// <returns>Instance of the <see cref="MarkdownlintIssuesSettings"/> class.</returns>
+        public static MarkdownlintIssuesSettings FromFilePath(FilePath logFilePath)
         {
-            return new MarkdownlintSettings(logFilePath);
+            return new MarkdownlintIssuesSettings(logFilePath);
         }
 
         /// <summary>
-        /// Returns a new instance of the <see cref="MarkdownlintSettings"/> class from the content
+        /// Returns a new instance of the <see cref="MarkdownlintIssuesSettings"/> class from the content
         /// of a Markdownlint log file.
         /// </summary>
         /// <param name="logFileContent">Content of the Markdownlint log file.</param>
-        /// <returns>Instance of the <see cref="MarkdownlintSettings"/> class.</returns>
-        public static MarkdownlintSettings FromContent(string logFileContent)
+        /// <returns>Instance of the <see cref="MarkdownlintIssuesSettings"/> class.</returns>
+        public static MarkdownlintIssuesSettings FromContent(string logFileContent)
         {
-            return new MarkdownlintSettings(logFileContent);
+            return new MarkdownlintIssuesSettings(logFileContent);
         }
     }
 }

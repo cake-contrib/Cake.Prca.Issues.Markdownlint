@@ -7,16 +7,16 @@
     using Shouldly;
     using Xunit;
 
-    public class MarkdownlintSettingsTests
+    public class MarkdownlintIssuesSettingsTests
     {
-        public sealed class TheMarkdownlintSettingsCtor
+        public sealed class TheMarkdownlintIssuesSettingsCtor
         {
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    MarkdownlintSettings.FromFilePath(null));
+                    MarkdownlintIssuesSettings.FromFilePath(null));
 
                 // Then
                 result.IsArgumentNullException("logFilePath");
@@ -27,7 +27,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    MarkdownlintSettings.FromContent(null));
+                    MarkdownlintIssuesSettings.FromContent(null));
 
                 // Then
                 result.IsArgumentNullException("logFileContent");
@@ -38,7 +38,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    MarkdownlintSettings.FromContent(string.Empty));
+                    MarkdownlintIssuesSettings.FromContent(string.Empty));
 
                 // Then
                 result.IsArgumentOutOfRangeException("logFileContent");
@@ -49,7 +49,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    MarkdownlintSettings.FromContent(" "));
+                    MarkdownlintIssuesSettings.FromContent(" "));
 
                 // Then
                 result.IsArgumentOutOfRangeException("logFileContent");
@@ -62,7 +62,7 @@
                 const string logFileContent = "foo";
 
                 // When
-                var settings = MarkdownlintSettings.FromContent(logFileContent);
+                var settings = MarkdownlintIssuesSettings.FromContent(logFileContent);
 
                 // Then
                 settings.LogFileContent.ShouldBe(logFileContent);
@@ -92,7 +92,7 @@
 
                     // When
                     var settings =
-                        MarkdownlintSettings.FromFilePath(fileName);
+                        MarkdownlintIssuesSettings.FromFilePath(fileName);
 
                     // Then
                     settings.LogFileContent.ShouldBe(expected);

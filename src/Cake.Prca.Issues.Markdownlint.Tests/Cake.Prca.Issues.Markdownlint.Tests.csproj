@@ -78,10 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExceptionAssertExtensions.cs" />
-    <Compile Include="MarkdownlintProviderFixture.cs" />
-    <Compile Include="MarkdownlintProviderTests.cs" />
+    <Compile Include="MarkdownlintIssuesProviderFixture.cs" />
+    <Compile Include="MarkdownlintIssuesProviderTests.cs" />
     <Compile Include="MarkdownlintRuleUrlResolverTests.cs" />
-    <Compile Include="MarkdownlintSettingsTests.cs" />
+    <Compile Include="MarkdownlintIssuesSettingsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
