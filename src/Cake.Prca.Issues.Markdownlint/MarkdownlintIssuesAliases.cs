@@ -9,8 +9,7 @@
     /// to write them to pull requests.
     /// </summary>
     [CakeAliasCategory(CakeAliasConstants.MainCakeAliasCategory)]
-    [CakeNamespaceImport("Cake.Prca.Issues.Markdownlint")]
-    public static class MarkdownlintProviderAliases
+    public static class MarkdownlintIssuesAliases
     {
         /// <summary>
         /// Gets an instance of a provider for code analysis issues reported by Markdownlint using a log file from disk.
@@ -24,7 +23,7 @@
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     ReportCodeAnalysisIssuesToPullRequest(
-        ///         MarkdownlintFromFilePath(
+        ///         MarkdownlintIssuesFromFilePath(
         ///             new FilePath("C:\build\Markdownlint.log")),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
@@ -36,14 +35,14 @@
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(CakeAliasConstants.CodeAnalysisProviderCakeAliasCategory)]
-        public static ICodeAnalysisProvider MarkdownlintFromFilePath(
+        public static ICodeAnalysisProvider MarkdownlintIssuesFromFilePath(
             this ICakeContext context,
             FilePath logFilePath)
         {
             context.NotNull(nameof(context));
             logFilePath.NotNull(nameof(logFilePath));
 
-            return context.Markdownlint(MarkdownlintSettings.FromFilePath(logFilePath));
+            return context.MarkdownlintIssues(MarkdownlintIssuesSettings.FromFilePath(logFilePath));
         }
 
         /// <summary>
@@ -58,7 +57,7 @@
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     ReportCodeAnalysisIssuesToPullRequest(
-        ///         MarkdownlintFromContent(
+        ///         MarkdownlintIssuesFromContent(
         ///             logFileContent),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
@@ -70,14 +69,14 @@
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(CakeAliasConstants.CodeAnalysisProviderCakeAliasCategory)]
-        public static ICodeAnalysisProvider MarkdownlintFromContent(
+        public static ICodeAnalysisProvider MarkdownlintIssuesFromContent(
             this ICakeContext context,
             string logFileContent)
         {
             context.NotNull(nameof(context));
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
 
-            return context.Markdownlint(MarkdownlintSettings.FromContent(logFileContent));
+            return context.MarkdownlintIssues(MarkdownlintIssuesSettings.FromContent(logFileContent));
         }
 
         /// <summary>
@@ -92,11 +91,11 @@
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     var settings =
-        ///         new MarkdownlintSettings(
+        ///         new MarkdownlintIssuesSettings(
         ///             new FilePath("C:\build\Markdownlint.log"));
         ///
         ///     ReportCodeAnalysisIssuesToPullRequest(
-        ///         Markdownlint(settings),
+        ///         MarkdownlintIssues(settings),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
         ///             "refs/heads/feature/myfeature",
@@ -107,14 +106,14 @@
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(CakeAliasConstants.CodeAnalysisProviderCakeAliasCategory)]
-        public static ICodeAnalysisProvider Markdownlint(
+        public static ICodeAnalysisProvider MarkdownlintIssues(
             this ICakeContext context,
-            MarkdownlintSettings settings)
+            MarkdownlintIssuesSettings settings)
         {
             context.NotNull(nameof(context));
             settings.NotNull(nameof(settings));
 
-            return new MarkdownlintProvider(context.Log, settings);
+            return new MarkdownlintIssuesProvider(context.Log, settings);
         }
     }
 }
