@@ -22,7 +22,7 @@
         /// <code>
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
-        ///     ReportCodeAnalysisIssuesToPullRequest(
+        ///     ReportIssuesToPullRequest(
         ///         MarkdownlintIssuesFromFilePath(
         ///             new FilePath("C:\build\Markdownlint.log")),
         ///         TfsPullRequests(
@@ -56,7 +56,7 @@
         /// <code>
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
-        ///     ReportCodeAnalysisIssuesToPullRequest(
+        ///     ReportIssuesToPullRequest(
         ///         MarkdownlintIssuesFromContent(
         ///             logFileContent),
         ///         TfsPullRequests(
@@ -94,7 +94,7 @@
         ///         new MarkdownlintIssuesSettings(
         ///             new FilePath("C:\build\Markdownlint.log"));
         ///
-        ///     ReportCodeAnalysisIssuesToPullRequest(
+        ///     ReportIssuesToPullRequest(
         ///         MarkdownlintIssues(settings),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
